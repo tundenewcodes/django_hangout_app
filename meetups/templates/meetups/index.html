@@ -1,0 +1,17 @@
+ {% extends 'meetups/base/base.html'%}{% load static %} {%block title%}All meetups{% endblock %} {% block sites_css %}
+<link rel="stylesheet" href="{% static  'meetups/styles/all_meetups.css' %}">{% endblock %}
+
+
+</head>
+
+{% block heading%}we've got great upcoming meetups{% endblock%} {% block paragraph%} find the ones that best suits you{% endblock %} {% block main_body%}
+
+<section class='section'>
+    <h2>upcoming meetups</h2>
+    <ol class='ol'>
+        {% for meet_up in meetup%} {% include 'meetups/includes/meetup_item.html' with title=meet_up.title slug=meet_up.slug image=meet_up.image.url location=meet_up.location %} {% endfor%}
+    </ol>
+</section>
+
+
+{% endblock%}
